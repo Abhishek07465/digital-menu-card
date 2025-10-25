@@ -1,0 +1,198 @@
+
+    :root {
+      --nav-color: #7f7f90;
+      --nav-hover-color: #ce1212;
+      --nav-mobile-background-color: #ffffff;
+
+      --default-color: #212529;
+      --accent-color: #ce1212;
+      --contrast-color: #ffffff;
+
+      --nav-font: "Inter", sans-serif;
+      --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --heading-font: "Amatic SC", cursive, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--default-font);
+      background: #f8f9fa;
+      color: var(--default-color);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header.header {
+      background: var(--nav-mobile-background-color);
+      padding: 20px 0;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: var(--heading-font);
+      font-weight: 700;
+      font-size: 36px;
+      color: var(--default-color);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--accent-color);
+      font-size: 36px;
+      margin-left: 4px;
+      line-height: 1;
+    }
+
+    /* Navigation menu */
+    nav.navmenu {
+      flex-grow: 1;
+      margin-left: 40px;
+    }
+
+    nav.navmenu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: nowrap;
+    }
+
+    nav.navmenu li {
+      position: relative;
+    }
+
+    nav.navmenu a {
+      font-family: var(--nav-font);
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--nav-color);
+      padding: 8px 4px;
+      display: block;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+
+    nav.navmenu a.active,
+    nav.navmenu a:hover {
+      color: var(--nav-hover-color);
+    }
+
+    /* Book a Table button */
+    .btn-getstarted {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+      font-size: 14px;
+      padding: 8px 26px;
+      border-radius: 50px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background-color 0.3s;
+      user-select: none;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .btn-getstarted:hover {
+      background: #b21010;
+      color: var(--contrast-color);
+      text-decoration: none;
+    }
+
+    /* Responsive: Mobile nav toggle */
+    .mobile-nav-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--nav-color);
+      user-select: none;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1199px) {
+      .container {
+        justify-content: space-between;
+      }
+
+      nav.navmenu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--nav-mobile-background-color);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        z-index: 9999;
+        margin-left: 0;
+      }
+
+      nav.navmenu.open {
+        max-height: 500px; /* enough to show menu */
+      }
+
+      nav.navmenu ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      nav.navmenu li {
+        width: 100%;
+      }
+
+      nav.navmenu a {
+        padding: 15px 20px;
+        font-size: 18px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .btn-getstarted {
+        display: none;
+      }
+
+      .mobile-nav-toggle {
+        display: block;
+      }
+    }
+
+    nav.navmenu a {
+  font-family: var(--nav-font);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--nav-color);
+  padding: 8px 4px;
+  display: block;
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth animation */
+  white-space: nowrap;
+}
+
+nav.navmenu a.active {
+  color: var(--nav-hover-color);
+  font-weight: 700; /* Slight weight change for emphasis */
+  border-bottom: 2px solid var(--nav-hover-color); /* Animated underline effect */
+}
+
